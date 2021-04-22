@@ -58,7 +58,7 @@
 ## About The Project
 
 [![User Flow Screen Shot][User-Flow]](https://example.com)
-[![Link to Google Slides][product-screenshot]](https://example.com)
+[![Link to Google Slides][product-screenshot]](https://docs.google.com/presentation/d/14I5ey3I3IhIY1dBtBZn5-KrMBcneZSmSm9NAq_2fU3o/edit#slide=id.g35f391192_09)
 
 
 ### Built With
@@ -115,9 +115,7 @@ Example of how to list things you need to use the software and how to install th
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
+Please refer to the [Documentation](https://example.com)_
 
 
 
