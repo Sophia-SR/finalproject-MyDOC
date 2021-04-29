@@ -33,6 +33,12 @@
   },
   "homepage": "https://github.com/gsong/express-react-project-example#readme",
   "dependencies": {
+    "@auth0/auth0-react": "^1.4.0",
+    "@chakra-ui/react": "^1.6.0",
+    "@emotion/react": "^11.1.5",
+    "@emotion/styled": "^11.3.0",
+    "framer-motion": "^4.1.11",
+    "react-hook-form": "^7.3.5",
     "rimraf": "^3.0.2"
   },
   "devDependencies": {
