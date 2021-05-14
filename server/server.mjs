@@ -6,21 +6,40 @@ import * as db from "./db.mjs";
 const app = express();
 const port = process.env.PORT || 4000;
 
-const tasks = express.Router();
+const router = express.Router();
 
-tasks.get("/", async (request, response) => {
-  const tasks = await db.getTasks();
-  response.json(tasks);
+router.get("/", async (request, response) => {
+  const doulaList = await db.getDoulas();
+  response.json(doulaList);
 });
 
-tasks.use(express.json());
-tasks.post("/", async (request, response) => {
+router.use(express.json());
+router.post("/", async (req, res) => {
+  console.log(req.body);
+  try {
+    let insertQuery = `INSERT INTO parents (first_name, last_name, phone_number, email) VALUES ( $1, $2, $3, $4)`;
+    await db.none(insertQuery, [
+      req.body.first_name,
+      req.body.last_name,
+      req.body.phone_number,
+      req.body.email,
+    ]);
+    console.log(req.body.firstName);
+    res.json({
+      payload: req.body,
+      message: "Contact Added",
+    });
+  } catch (error) {
+    console.log(error);
+  }
+});
+router.post("/", async (request, response) => {
   const { name } = request.body;
   const task = await db.addTask(name);
   response.status(201).json(task);
 });
 
-app.use("/api/tasks", tasks);
+app.use("/api/doulas", router);
 
 process.env?.SERVE_REACT?.toLowerCase() === "true" &&
   app.use(

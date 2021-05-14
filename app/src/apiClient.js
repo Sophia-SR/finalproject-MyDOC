@@ -1,5 +1,5 @@
-export const getTasks = async () => {
-  const response = await fetch("/api/tasks");
+export const getDoulas = async () => {
+  const response = await fetch("/api/doulas");
   return response.json();
 };
 
