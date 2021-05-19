@@ -5,6 +5,7 @@ import { Button, Grid } from '@material-ui/core';
 
 import SearchIcon from '@material-ui/icons/Search';
 import ChatOutlinedIcon from '@material-ui/icons/ChatOutlined';
+import PersonOutlineIcon from '@material-ui/icons/PersonOutline';
 
 import { Link } from "react-router-dom";
 
@@ -18,7 +19,7 @@ function Layout(props) {
         alignItems="center"
        >
        <Grid item xs={6}>
-          <Link to="/signin">
+          <Link to="/home">
           <p>MyDOC</p>
           </Link>
        </Grid>
@@ -28,6 +29,9 @@ function Layout(props) {
        display="flex"
         >
         <div style={{display:"flex", justifyContent:"flex-end"}}>
+          <Link to="/doulaprofile">
+            <PersonOutlineIcon />
+          </Link>
           <Link to="/doulas">
           <SearchIcon />
           </Link>

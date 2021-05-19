@@ -7,6 +7,8 @@ import App from "../src/App.js";
 
 import { Auth0Provider } from "@auth0/auth0-react";
 
+import classnames from "classnames";
+
 
 ReactDOM.render(
   <React.StrictMode>

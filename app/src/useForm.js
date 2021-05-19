@@ -32,7 +32,7 @@ const UseForm = ({ handleClose }) => {
     console.log(data);
   };
 
-  const { user, isAuthenticated, loginWithRedirect } = useAuth0();
+  const { user, isAuthenticated, logout, loginWithRedirect } = useAuth0();
 
   return (
     <form className={classes.root} onSubmit={handleSubmit(onSubmit)}>
@@ -106,11 +106,15 @@ const UseForm = ({ handleClose }) => {
         <Button variant="contained" onClick={handleClose}>
           Cancel
         </Button>
-        <Button type="submit" variant="contained" color="primary">
-          Signup
-        </Button>
         <Button variant="contained" onClick={() => loginWithRedirect()}>
-          Log In
+          LogIn
+        </Button>
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={() => logout({ returnTo: window.location.origin })}
+        >
+          LogOut
         </Button>
       </div>
     </form>

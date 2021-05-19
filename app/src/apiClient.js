@@ -1,5 +1,6 @@
 export const getDoulas = async () => {
   const response = await fetch("/api/doulas");
+  console.log("this is the response", response);
   return response.json();
 };
 

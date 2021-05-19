@@ -10,7 +10,8 @@ const router = express.Router();
 
 router.get("/", async (request, response) => {
   const doulaList = await db.getDoulas();
-  response.json(doulaList);
+  console.log("it worked!");
+  response.status(200).json(doulaList);
 });
 
 router.use(express.json());
@@ -27,17 +28,17 @@ router.post("/", async (req, res) => {
     console.log(req.body.firstName);
     res.json({
       payload: req.body,
-      message: "Contact Added",
+      message: "Parent Added",
     });
   } catch (error) {
     console.log(error);
   }
 });
-router.post("/", async (request, response) => {
-  const { name } = request.body;
-  const task = await db.addTask(name);
-  response.status(201).json(task);
-});
+// router.post("/", async (request, response) => {
+//   const { name } = request.body;
+//   const task = await db.addTask(name);
+//   response.status(201).json(task);
+// });
 
 app.use("/api/doulas", router);
 

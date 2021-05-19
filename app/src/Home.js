@@ -1,7 +1,10 @@
 import React from "react";
 
-function Home() {
-  return <div></div>;
-}
+import { ImageSlider } from "./ImageSlider.js";
+import { SliderData } from "./SliderData.js";
+
+const Home = () => {
+  return <ImageSlider />;
+};
 
 export default Home;

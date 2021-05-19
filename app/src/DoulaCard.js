@@ -66,26 +66,13 @@ const cards = [1, 2, 3, 4, 5, 6, 7, 8];
 export default function DoulaCard() {
   const [doulas, setDoulas] = React.useState([]);
 
-  const getDoulas = async () => {
-    try {
-      console.log(JSON.stringify());
-      const response = await fetch("/api/doulas", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-      });
-      window.location = "/";
-      return response.json();
-    } catch (err) {
-      console.error(err.message);
-    }
-  };
+  const doulaList = async () => setDoulas(await apiClient.getDoulas());
+
   React.useEffect(() => {
-    getDoulas();
+    doulaList();
   }, []);
-  console.log(doulas);
+  // console.log(doulas);
+
   const classes = useStyles();
 
   return (
