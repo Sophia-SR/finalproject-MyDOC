@@ -1,55 +1,44 @@
-import * as React from "react";
+/* eslint-disable import/order */
+/* eslint-disable prettier/prettier */
+import React from "react";
 
-import * as apiClient from "./apiClient";
+import Signup from "../src/Signup.js";
 
-const App = () => {
-  const [tasks, setTasks] = React.useState([]);
+import UseForm from "./UseForm.js"
 
-  const loadTasks = async () => setTasks(await apiClient.getTasks());
+import Layout from "./Layout/layout.js"
 
-  React.useEffect(() => {
-    loadTasks();
-  }, []);
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-  return (
-    <main className="App">
-      <TaskList tasks={tasks} />
-      <AddTask loadTasks={loadTasks} />
-    </main>
-  );
-};
+import DoulaCard from "./DoulaCard.js";
 
-const TaskList = ({ tasks }) => (
-  <ul>
-    {tasks.map(({ id, name }) => (
-      <li key={id}>{name}</li>
-    ))}
-  </ul>
-);
+import About from "./About.js";
 
-const AddTask = ({ loadTasks }) => {
-  const [task, setTask] = React.useState("");
+import Contact from "./Contact.js";
 
-  const canAdd = task !== "";
+import Home from "./Home.js"
+import ImageSlider from "./ImageSlider.js";
 
-  const onSubmit = async (e) => {
-    e.preventDefault();
-    if (canAdd) {
-      await apiClient.addTask(task);
-      loadTasks();
-      setTask("");
-    }
-  };
+import NHSAPIClient from "./NHSApiClient.js"
 
-  return (
-    <form onSubmit={onSubmit}>
-      <label>
-        New task:{" "}
-        <input onChange={(e) => setTask(e.currentTarget.value)} value={task} />
-      </label>
-      <button disabled={!canAdd}>Add</button>
-    </form>
-  );
-};
+
+function App() {
+  return ( 
+  <Router>
+   <div> 
+  <Layout>
+  <Route path="/home"
+  component={NHSAPIClient} />
+  <Route path="/signin" component={UseForm} />
+  <Route path="/doulas" component={DoulaCard} />
+  <Route path="/about"
+  component={About} />
+  <Route path="/contact"
+  component={Contact} />
+  </Layout>
+  </div>
+  </Router>
+  )
+}
 
 export default App;
