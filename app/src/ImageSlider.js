@@ -9,13 +9,11 @@ import "slick-carousel/slick/slick-theme.css";
 
 import "./style.css";
 
-import AdobeStock_221592135 from "/Users/tpl6_2021h1/Documents/FinalProject/app/src/AdobeStock_221592135.jpeg";
-import AdobeStock_417541255 from "/Users/tpl6_2021h1/Documents/FinalProject/app/src/AdobeStock_417541255.jpeg";
-import AdobeStock_214475030 from "/Users/tpl6_2021h1/Documents/FinalProject/app/src/AdobeStock_214475030.jpeg";
-import AdobeStock_261977708 from "/Users/tpl6_2021h1/Documents/FinalProject/app/src/AdobeStock_261977708.jpeg";
-import AdobeStock_287405343 from "/Users/tpl6_2021h1/Documents/FinalProject/app/src/AdobeStock_287405343.jpeg";
-
-
+import AdobeStock_214475030 from "./images/AdobeStock_214475030.jpeg";
+import AdobeStock_221592135 from "./images/AdobeStock_221592135.jpeg";
+import AdobeStock_261977708 from "./images/AdobeStock_261977708.jpeg";
+import AdobeStock_287405343 from "./images/AdobeStock_287405343.jpeg";
+import AdobeStock_417541255 from "./images/AdobeStock_417541255.jpeg";
 
 class CustomSlide extends Component {
   render() {
