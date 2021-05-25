@@ -1,23 +1,20 @@
-/* eslint-disable prettier/prettier */
-/* eslint-disable import/order */
 import React from "react";
 import ReactDOM from "react-dom";
 
-import App from "../src/App.js";
-
 import { Auth0Provider } from "@auth0/auth0-react";
-
 import classnames from "classnames";
 
+import App from "../src/App.js";
 
 ReactDOM.render(
   <React.StrictMode>
-   <Auth0Provider
-    domain="dev-urdzk5yq.us.auth0.com"
-    clientId="4qkNPp2HURSxOFKwnEXuVC3IxPBdl1ju"
-    redirectUri={window.location.origin}>
+    <Auth0Provider
+      domain="dev-urdzk5yq.us.auth0.com"
+      clientId="4qkNPp2HURSxOFKwnEXuVC3IxPBdl1ju"
+      redirectUri={window.location.origin}
+    >
       <App />
-    </Auth0Provider>  
+    </Auth0Provider>
   </React.StrictMode>,
   document.getElementById("root"),
 );
