@@ -13,6 +13,9 @@ import AdobeStock_221592135 from "/Users/tpl6_2021h1/Documents/FinalProject/app/
 import AdobeStock_417541255 from "/Users/tpl6_2021h1/Documents/FinalProject/app/src/AdobeStock_417541255.jpeg";
 import AdobeStock_214475030 from "/Users/tpl6_2021h1/Documents/FinalProject/app/src/AdobeStock_214475030.jpeg";
 import AdobeStock_261977708 from "/Users/tpl6_2021h1/Documents/FinalProject/app/src/AdobeStock_261977708.jpeg";
+import AdobeStock_287405343 from "/Users/tpl6_2021h1/Documents/FinalProject/app/src/AdobeStock_287405343.jpeg";
+
+
 
 class CustomSlide extends Component {
   render() {
@@ -119,7 +122,7 @@ export default class Responsive extends Component {
           <CustomSlide
             index={
               <img
-                src={AdobeStock_221592135}
+                src={AdobeStock_287405343}
                 alt="pregnancy pic
                 "
                 style={{ height: "100px", width: "250px" }}
