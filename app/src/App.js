@@ -4,7 +4,7 @@ import React from "react";
 
 import Signup from "../src/Signup.js";
 
-import UseForm from "../src/useForm.js"
+import UseForm from "./UseForm.js"
 
 import Layout from "./Layout/layout.js"
 
@@ -16,9 +16,10 @@ import About from "./About.js";
 
 import Contact from "./Contact.js";
 
-import DoulaProfile from "./DoulaProfile.js"
-
 import Home from "./Home.js"
+import ImageSlider from "./ImageSlider.js";
+
+import NHSAPIClient from "./NHSApiClient.js"
 
 
 function App() {
@@ -26,16 +27,14 @@ function App() {
   <Router>
    <div> 
   <Layout>
-  <Home />
   <Route path="/home"
-  component={Home} />
+  component={NHSAPIClient} />
   <Route path="/signin" component={UseForm} />
   <Route path="/doulas" component={DoulaCard} />
   <Route path="/about"
   component={About} />
   <Route path="/contact"
   component={Contact} />
-  <Route path="/doulaprofile" component={DoulaProfile} />
   </Layout>
   </div>
   </Router>

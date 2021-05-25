@@ -1,15 +1,24 @@
 /* eslint-disable import/order */
 /* eslint-disable prettier/prettier */
 import React from 'react';
-import { Button, Grid } from '@material-ui/core';
+import { Button, Grid, Avatar } from '@material-ui/core';
 
 import SearchIcon from '@material-ui/icons/Search';
-import ChatOutlinedIcon from '@material-ui/icons/ChatOutlined';
 import PersonOutlineIcon from '@material-ui/icons/PersonOutline';
 
 import { Link } from "react-router-dom";
 
+import UseForm from "/Users/tpl6_2021h1/Documents/FinalProject/app/src/UseForm.js";
+
+import { useAuth0 } from "@auth0/auth0-react";
+
+import logo from "/Users/tpl6_2021h1/Documents/FinalProject/app/src/Logo.png";
+
+
+
 function Layout(props) {
+  const { user, isAuthenticated, isLoading } = useAuth0();
+
   return ( 
   <div style={{width:"100%"}}>
        <Grid
@@ -19,8 +28,8 @@ function Layout(props) {
         alignItems="center"
        >
        <Grid item xs={6}>
-          <Link to="/home">
-          <p>MyDOC</p>
+          <Link to="/home" style={{ textDecoration: 'none' }}>
+          <img src={logo} alt="Logo" style={{ height: '70px', width: '70px' }} />
           </Link>
        </Grid>
        <Grid 
@@ -29,14 +38,13 @@ function Layout(props) {
        display="flex"
         >
         <div style={{display:"flex", justifyContent:"flex-end"}}>
-          <Link to="/doulaprofile">
+          <UseForm /> 
+          {isAuthenticated ? <Avatar src={user.picture} alt={user.name} style={{ height: '30px', width: '30px' }} /> : 
             <PersonOutlineIcon />
-          </Link>
+          }
+          
           <Link to="/doulas">
           <SearchIcon />
-          </Link>
-          <Link to="/signin">
-          <ChatOutlinedIcon />
           </Link>
         </div>
         </Grid>
@@ -49,11 +57,11 @@ function Layout(props) {
         justify="space-between"
         alignItems="center"
       >
-      <Link to="/about">
+      <Link to="/about" style={{ textDecoration: 'none' }}>
       <Button variant="contained" color="primary">About Us</Button>
       </Link>
-      <Link to="/contact">
-          <Button variant="contained" color="primary">Contact</Button>
+      <Link to="/contact" style={{ textDecoration: 'none' }}>
+          <Button variant="contained" color="primary" >Contact</Button>
       </Link>
       </Grid>
       </div>

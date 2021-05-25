@@ -3,15 +3,35 @@ import mime from "mime-types";
 
 import * as db from "./db.mjs";
 
+import fetch from "node-fetch";
+
 const app = express();
 const port = process.env.PORT || 4000;
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
+  //only allow requests from domain upon deployment
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept",
+  );
+  next();
+});
 
 const router = express.Router();
+const externalRouter = express.Router();
 
 router.get("/", async (request, response) => {
   const doulaList = await db.getDoulas();
   console.log("it worked!");
   response.status(200).json(doulaList);
+});
+
+externalRouter.get("/nhs_pregnancy", async (request, response) => {
+  const nhsResponse = await fetch("https://api.nhs.uk/pregnancy/week-by-week/1-to-12/");
+  const data = await nhsResponse.json();
+  console.log("nhs endpoint here");
+  console.log(nhsResponse);
+  response.status(200).json(data);
 });
 
 router.use(express.json());
@@ -41,6 +61,8 @@ router.post("/", async (req, res) => {
 // });
 
 app.use("/api/doulas", router);
+
+app.use("/external", externalRouter);
 
 process.env?.SERVE_REACT?.toLowerCase() === "true" &&
   app.use(

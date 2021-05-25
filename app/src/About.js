@@ -2,7 +2,8 @@ import React from "react";
 
 function About() {
   return (
-    <div>
+    <div style={{ height: "90vh", margin: 0, padding: 0 }}>
+      <h2>What Is MyD.O.C.?</h2>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas tempus
         viverra eros id aliquam. In tempor libero sed felis tincidunt eleifend.

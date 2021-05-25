@@ -32,92 +32,31 @@ const UseForm = ({ handleClose }) => {
     console.log(data);
   };
 
-  const { user, isAuthenticated, logout, loginWithRedirect } = useAuth0();
+  const {
+    user,
+    isAuthenticated,
+    isLoading,
+    logout,
+    loginWithRedirect,
+  } = useAuth0();
 
   return (
-    <form className={classes.root} onSubmit={handleSubmit(onSubmit)}>
-      <Controller
-        name="firstName"
-        control={control}
-        defaultValue=""
-        render={({ field: { onChange, value }, fieldState: { error } }) => (
-          <TextField
-            label="First Name"
-            variant="filled"
-            value={value}
-            onChange={onChange}
-            error={!!error}
-            helperText={error ? error.message : null}
-          />
-        )}
-        rules={{ required: "First name required" }}
-      />
-      <Controller
-        name="lastName"
-        control={control}
-        defaultValue=""
-        render={({ field: { onChange, value }, fieldState: { error } }) => (
-          <TextField
-            label="Last Name"
-            variant="filled"
-            value={value}
-            onChange={onChange}
-            error={!!error}
-            helperText={error ? error.message : null}
-          />
-        )}
-        rules={{ required: "Last name required" }}
-      />
-      <Controller
-        name="email"
-        control={control}
-        defaultValue=""
-        render={({ field: { onChange, value }, fieldState: { error } }) => (
-          <TextField
-            label="Email"
-            variant="filled"
-            value={value}
-            onChange={onChange}
-            error={!!error}
-            helperText={error ? error.message : null}
-            type="email"
-          />
-        )}
-        rules={{ required: "Email required" }}
-      />
-      <Controller
-        name="password"
-        control={control}
-        defaultValue=""
-        render={({ field: { onChange, value }, fieldState: { error } }) => (
-          <TextField
-            label="Password"
-            variant="filled"
-            value={value}
-            onChange={onChange}
-            error={!!error}
-            helperText={error ? error.message : null}
-            type="password"
-          />
-        )}
-        rules={{ required: "Password required" }}
-      />
-      <div>
-        <Button variant="contained" onClick={handleClose}>
-          Cancel
-        </Button>
-        <Button variant="contained" onClick={() => loginWithRedirect()}>
-          LogIn
-        </Button>
+    <div>
+      {isAuthenticated ? (
         <Button
-          variant="contained"
+          variant="outlined"
           color="primary"
+          style={{ height: "30px", width: "50px" }}
           onClick={() => logout({ returnTo: window.location.origin })}
         >
           LogOut
         </Button>
-      </div>
-    </form>
+      ) : (
+        <Button variant="contained" onClick={() => loginWithRedirect()}>
+          LogIn
+        </Button>
+      )}
+    </div>
   );
 };
 
