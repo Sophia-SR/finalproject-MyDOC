@@ -8,7 +8,7 @@ import PersonOutlineIcon from '@material-ui/icons/PersonOutline';
 
 import { Link } from "react-router-dom";
 
-import UseForm from "../UseForm.js";
+import UseForm from "../Login.js";
 
 import { useAuth0 } from "@auth0/auth0-react";
 

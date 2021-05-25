@@ -1,9 +1,9 @@
 /* eslint-disable import/order */
 import React from "react";
 import { makeStyles } from "@material-ui/core";
-import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import { useForm, Controller } from "react-hook-form";
+
 import { useAuth0 } from "@auth0/auth0-react";
 
 const useStyles = makeStyles((theme) => ({
@@ -24,13 +24,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const UseForm = ({ handleClose }) => {
+const Login = ({ handleClose }) => {
   const classes = useStyles();
   const { handleSubmit, control } = useForm();
-
-  const onSubmit = (data) => {
-    console.log(data);
-  };
 
   const {
     user,
@@ -60,4 +56,4 @@ const UseForm = ({ handleClose }) => {
   );
 };
 
-export default UseForm;
+export default Login;
