@@ -6,7 +6,7 @@ import Signup from "../src/Signup.js";
 
 import UseForm from "./Login.js"
 
-import Layout from "./Layout/layout.js"
+import Layout from "./layout.js"
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
